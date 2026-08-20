@@ -4,190 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Java Programming Problems</title>
+    <title>My Weekly Assignments</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #24292f;
-        }
-
-        header {
-            background: #24292f;
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-        }
-
-        header h1 {
-            margin-bottom: 10px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6fb;
+            color: #333;
         }
 
         .container {
-            max-width: 1150px;
-            margin: 40px auto;
-            padding: 0 20px;
+            width: 92%;
+            max-width: 710px;
+            margin: 35px auto 80px;
         }
 
-        .summary {
+        .top-box {
             background: white;
-            padding: 25px;
             text-align: center;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 18px 10px;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.12);
+            margin-bottom: 20px;
         }
 
-        .summary h2 {
-            color: #0969da;
-            margin-bottom: 10px;
+        .top-box h1 {
+            margin: 0 0 7px;
+            font-size: 18px;
+            color: #1769c2;
+        }
+
+        .top-box p {
+            margin: 0;
+            font-size: 11px;
+            color: #555;
         }
 
         .weeks {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        .week-card {
+        .week {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,.10);
         }
 
         .week-title {
-            background: #0969da;
+            background: #086ed8;
             color: white;
             text-align: center;
-            padding: 18px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 11px 5px;
         }
 
-        .problem-list {
-            padding: 15px;
+        .problems {
+            padding: 9px;
         }
 
         .problem {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 14px;
-            margin-bottom: 12px;
-            background: #f6f8fa;
-            border: 1px solid #d0d7de;
-            border-radius: 8px;
+            justify-content: space-between;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 9px;
+            margin-bottom: 8px;
+            font-size: 12px;
         }
 
         .problem:last-child {
             margin-bottom: 0;
         }
 
-        .problem-name {
-            font-weight: bold;
-        }
-
         .btn {
-            border: none;
-            background: #238636;
-            color: white;
-            padding: 9px 15px;
-            border-radius: 6px;
+            border: 0;
             cursor: pointer;
+            background: #218838;
+            color: white;
+            padding: 6px 11px;
+            border-radius: 4px;
+            font-size: 10px;
             font-weight: bold;
         }
 
         .btn:hover {
-            background: #1a7f37;
+            background: #176b2c;
         }
 
-        .modal {
+        /* Code Viewer */
+
+        #viewer {
             display: none;
             position: fixed;
+            inset: 0;
+            background: #f4f6fb;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
             overflow-y: auto;
-            background: rgba(0,0,0,0.65);
         }
 
-        .modal-content {
-            background: white;
-            margin: 40px auto;
-            padding: 30px;
-            width: 90%;
-            max-width: 900px;
-            border-radius: 12px;
+        .viewer-header {
+            background: #1769c2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
-        .close {
-            float: right;
-            font-size: 30px;
+        .viewer-container {
+            width: 94%;
+            max-width: 1100px;
+            margin: 20px auto 50px;
+        }
+
+        .back-btn {
+            background: #218838;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
             cursor: pointer;
-        }
-
-        .close:hover {
-            color: red;
-        }
-
-        #modalTitle {
-            color: #0969da;
-            margin-bottom: 20px;
-        }
-
-        .file-name {
-            color: #57606a;
             margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .code-box {
-            background: #24292f;
-            color: #ffffff;
-            padding: 20px;
+            background: #1e1e1e;
             border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        }
+
+        .code-title {
+            background: #333;
+            color: white;
+            padding: 11px 16px;
+            font-size: 13px;
+        }
+
+        pre {
+            margin: 0;
+            padding: 20px;
             overflow-x: auto;
-            white-space: pre;
-            font-family: Consolas, monospace;
+            color: #f1f1f1;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 13px;
             line-height: 1.6;
-            font-size: 14px;
+            white-space: pre;
         }
 
         .loading {
-            text-align: center;
-            padding: 30px;
-            font-size: 18px;
-        }
-
-        .error {
-            color: red;
-            padding: 20px;
+            color: #fff;
         }
 
         footer {
-            background: #24292f;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #252b32;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
+            padding: 12px 5px;
+            font-size: 11px;
         }
 
-        @media (max-width: 600px) {
-            .problem {
-                flex-direction: column;
-                gap: 12px;
+        @media (max-width: 700px) {
+            .weeks {
+                grid-template-columns: 1fr;
             }
 
-            .modal-content {
-                width: 95%;
-                padding: 20px;
+            .container {
+                width: 94%;
+            }
+        }
+
+        @media (min-width: 701px) and (max-width: 900px) {
+            .weeks {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -195,222 +203,155 @@
 
 <body>
 
-<header>
-    <h1>Java Programming Problems</h1>
-    <p>Weekly Problem Solving Assignments</p>
-</header>
-
 <div class="container">
 
-    <div class="summary">
-        <h2>My Weekly Assignments</h2>
+    <div class="top-box">
+        <h1>My Weekly Assignments</h1>
         <p>Total Weeks: 7 | Total Problems: 14</p>
     </div>
 
     <div class="weeks">
 
         <!-- WEEK 6 -->
-        <div class="week-card">
-            <div class="week-title">
-                <h2>Week 6</h2>
-            </div>
-
-            <div class="problem-list">
-
+        <div class="week">
+            <div class="week-title">Week 6</div>
+            <div class="problems">
                 <div class="problem">
-                    <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('week-6', 0)">
-                        View Problem
-                    </button>
+                    <span>Problem 1</span>
+                    <button class="btn" onclick="showCode('week-6', 1)">View Problem</button>
                 </div>
 
                 <div class="problem">
-                    <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('week-6', 1)">
-                        View Problem
-                    </button>
+                    <span>Problem 2</span>
+                    <button class="btn" onclick="showCode('week-6', 2)">View Problem</button>
                 </div>
 
                 <div class="problem">
-                    <span class="problem-name">Problem 3</span>
-                    <button class="btn" onclick="showProblem('week-6', 2)">
-                        View Problem
-                    </button>
+                    <span>Problem 3</span>
+                    <button class="btn" onclick="showCode('week-6', 3)">View Problem</button>
                 </div>
-
             </div>
         </div>
-
 
         <!-- WEEK 7 -->
-        <div class="week-card">
-            <div class="week-title">
-                <h2>Week 7</h2>
-            </div>
-
-            <div class="problem-list">
-
+        <div class="week">
+            <div class="week-title">Week 7</div>
+            <div class="problems">
                 <div class="problem">
-                    <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('week-7', 0)">
-                        View Problem
-                    </button>
+                    <span>Problem 1</span>
+                    <button class="btn" onclick="showCode('week-7', 1)">View Problem</button>
                 </div>
 
                 <div class="problem">
-                    <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('week-7', 1)">
-                        View Problem
-                    </button>
+                    <span>Problem 2</span>
+                    <button class="btn" onclick="showCode('week-7', 2)">View Problem</button>
                 </div>
 
                 <div class="problem">
-                    <span class="problem-name">Problem 3</span>
-                    <button class="btn" onclick="showProblem('week-7', 2)">
-                        View Problem
-                    </button>
+                    <span>Problem 3</span>
+                    <button class="btn" onclick="showCode('week-7', 3)">View Problem</button>
                 </div>
-
             </div>
         </div>
-
 
         <!-- WEEK 8 -->
-        <div class="week-card">
-            <div class="week-title">
-                <h2>Week 8</h2>
-            </div>
-
-            <div class="problem-list">
-
+        <div class="week">
+            <div class="week-title">Week 8</div>
+            <div class="problems">
                 <div class="problem">
-                    <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('week-8', 0)">
-                        View Problem
-                    </button>
+                    <span>Problem 1</span>
+                    <button class="btn" onclick="showCode('week-8', 1)">View Problem</button>
                 </div>
 
                 <div class="problem">
-                    <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('week-8', 1)">
-                        View Problem
-                    </button>
+                    <span>Problem 2</span>
+                    <button class="btn" onclick="showCode('week-8', 2)">View Problem</button>
                 </div>
 
                 <div class="problem">
-                    <span class="problem-name">Problem 3</span>
-                    <button class="btn" onclick="showProblem('week-8', 2)">
-                        View Problem
-                    </button>
+                    <span>Problem 3</span>
+                    <button class="btn" onclick="showCode('week-8', 3)">View Problem</button>
                 </div>
-
             </div>
         </div>
-
 
         <!-- WEEK 9 -->
-        <div class="week-card">
-            <div class="week-title">
-                <h2>Week 9</h2>
-            </div>
-
-            <div class="problem-list">
-
+        <div class="week">
+            <div class="week-title">Week 9</div>
+            <div class="problems">
                 <div class="problem">
-                    <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('week-9', 0)">
-                        View Problem
-                    </button>
+                    <span>Problem 1</span>
+                    <button class="btn" onclick="showCode('week-9', 1)">View Problem</button>
                 </div>
-
             </div>
         </div>
-
 
         <!-- WEEK 11 -->
-        <div class="week-card">
-            <div class="week-title">
-                <h2>Week 11</h2>
-            </div>
-
-            <div class="problem-list">
-
+        <div class="week">
+            <div class="week-title">Week 11</div>
+            <div class="problems">
                 <div class="problem">
-                    <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('week-11', 0)">
-                        View Problem
-                    </button>
+                    <span>Problem 1</span>
+                    <button class="btn" onclick="showCode('week-11', 1)">View Problem</button>
                 </div>
-
             </div>
         </div>
-
 
         <!-- WEEK 12 -->
-        <div class="week-card">
-            <div class="week-title">
-                <h2>Week 12</h2>
-            </div>
-
-            <div class="problem-list">
-
+        <div class="week">
+            <div class="week-title">Week 12</div>
+            <div class="problems">
                 <div class="problem">
-                    <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('week-12', 0)">
-                        View Problem
-                    </button>
+                    <span>Problem 1</span>
+                    <button class="btn" onclick="showCode('week-12', 1)">View Problem</button>
                 </div>
 
                 <div class="problem">
-                    <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('week-12', 1)">
-                        View Problem
-                    </button>
+                    <span>Problem 2</span>
+                    <button class="btn" onclick="showCode('week-12', 2)">View Problem</button>
                 </div>
-
             </div>
         </div>
 
-
         <!-- WEEK 13 -->
-        <div class="week-card">
-            <div class="week-title">
-                <h2>Week 13</h2>
-            </div>
-
-            <div class="problem-list">
-
+        <div class="week">
+            <div class="week-title">Week 13</div>
+            <div class="problems">
                 <div class="problem">
-                    <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('week-13', 0)">
-                        View Problem
-                    </button>
+                    <span>Problem 1</span>
+                    <button class="btn" onclick="showCode('week-13', 1)">View Problem</button>
                 </div>
-
             </div>
         </div>
 
     </div>
-
 </div>
 
 
-<!-- MODAL -->
+<!-- CODE VIEWER -->
 
-<div id="problemModal" class="modal">
+<div id="viewer">
 
-    <div class="modal-content">
+    <div class="viewer-header" id="viewerTitle">
+        Java Code
+    </div>
 
-        <span class="close" onclick="closeProblem()">
-            &times;
-        </span>
+    <div class="viewer-container">
 
-        <h2 id="modalTitle"></h2>
+        <button class="back-btn" onclick="closeViewer()">
+            ← Back to Assignments
+        </button>
 
-        <p class="file-name" id="fileName"></p>
+        <div class="code-box">
 
-        <div id="codeArea" class="loading">
-            Loading Java code...
+            <div class="code-title" id="fileName">
+                Loading...
+            </div>
+
+            <pre id="code">
+<span class="loading">Loading code from GitHub...</span>
+            </pre>
+
         </div>
 
     </div>
@@ -419,140 +360,139 @@
 
 
 <footer>
-    <p>© 2026 Java Problems Repository | MD Ohidur Rahman</p>
+    © 2026 Java Problems Repository | MD Ohidur Rahman
 </footer>
 
 
 <script>
 
-const username = "ohidurrahman2026";
-const repository = "mdohidurrahman251-15-294-01";
+const OWNER = "ohidurrahman2026";
+const REPO = "mdohidurrahman251-15-294-";
+const BRANCH = "main";
 
 
-async function showProblem(folder, problemIndex) {
+async function showCode(week, problemNumber) {
 
-    const modal = document.getElementById("problemModal");
-    const title = document.getElementById("modalTitle");
-    const fileName = document.getElementById("fileName");
-    const codeArea = document.getElementById("codeArea");
+    document.getElementById("viewer").style.display = "block";
 
-    modal.style.display = "block";
+    document.getElementById("viewerTitle").innerText =
+        "Week " + week.replace("week-", "") +
+        " - Problem " + problemNumber;
 
-    title.innerText =
-        folder.replace("-", " ").toUpperCase() +
-        " - Problem " +
-        (problemIndex + 1);
+    document.getElementById("fileName").innerText = "Loading...";
 
-    fileName.innerText = "";
-
-    codeArea.className = "loading";
-    codeArea.innerText = "Loading your actual Java code...";
+    document.getElementById("code").textContent =
+        "Loading code from GitHub...";
 
 
     try {
 
+        /*
+         * GitHub repository tree থেকে সব file নেওয়া হচ্ছে.
+         */
+
         const apiURL =
-            `https://api.github.com/repos/${username}/${repository}/contents/${folder}`;
+            https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?recursive=1;
 
         const response = await fetch(apiURL);
 
         if (!response.ok) {
-            throw new Error("Folder not found");
+            throw new Error("GitHub repository could not be accessed.");
         }
 
-        const files = await response.json();
+        const data = await response.json();
 
 
-        const javaFiles = files
-            .filter(file =>
-                file.type === "file" &&
-                file.name.toLowerCase().endsWith(".java")
+        /*
+         * Selected week-এর Java files খোঁজা হচ্ছে.
+         */
+
+        const files = data.tree
+            .filter(item =>
+                item.type === "blob" &&
+                item.path.toLowerCase().startsWith(week + "/") &&
+                item.path.toLowerCase().endsWith(".java")
             )
             .sort((a, b) =>
-                a.name.localeCompare(
-                    b.name,
-                    undefined,
-                    {
-                        numeric: true,
-                        sensitivity: "base"
-                    }
-                )
+                a.path.localeCompare(b.path, undefined, {
+                    numeric: true,
+                    sensitivity: "base"
+                })
             );
 
 
-        if (!javaFiles[problemIndex]) {
+        if (files.length === 0) {
 
-            throw new Error(
-                "Java file not found for this problem"
-            );
+            document.getElementById("fileName").innerText =
+                "Java file not found";
+
+            document.getElementById("code").textContent =
+                "No .java file was found inside " +
+                week + "/ in your GitHub repository.";
+
+            return;
         }
 
 
-        const selectedFile =
-            javaFiles[problemIndex];
+        if (problemNumber > files.length) {
+
+            document.getElementById("fileName").innerText =
+                "Problem not found";
+
+            document.getElementById("code").textContent =
+                "Problem " + problemNumber +
+                " Java file was not found.";
+
+            return;
+        }
 
 
-        title.innerText =
-            folder.replace("-", " ").toUpperCase() +
-            " - " +
-            selectedFile.name;
+        /*
+         * Problem number অনুযায়ী Java file নেওয়া হচ্ছে.
+         */
+
+        const selectedFile = files[problemNumber - 1];
+
+        const rawURL =
+            https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${selectedFile.path};
 
 
-        fileName.innerText =
-            "File: " + selectedFile.name;
-
-
-        const codeResponse =
-            await fetch(selectedFile.download_url);
-
+        const codeResponse = await fetch(rawURL);
 
         if (!codeResponse.ok) {
-            throw new Error("Could not load Java code");
+            throw new Error("Java code could not be loaded.");
         }
 
-
-        const code =
-            await codeResponse.text();
+        const code = await codeResponse.text();
 
 
-        codeArea.className = "code-box";
+        document.getElementById("fileName").innerText =
+            selectedFile.path;
 
-        codeArea.textContent = code;
-
-
-    } catch (error) {
-
-        codeArea.className = "error";
-
-        codeArea.innerHTML = `
-            <h3>Problem code could not be loaded.</h3>
-            <p>${error.message}</p>
-        `;
+        document.getElementById("code").textContent = code;
 
     }
 
-}
+    catch (error) {
 
+        document.getElementById("fileName").innerText =
+            "Error";
 
-function closeProblem() {
-
-    document.getElementById("problemModal").style.display = "none";
-
-}
-
-
-window.onclick = function(event) {
-
-    const modal =
-        document.getElementById("problemModal");
-
-    if (event.target === modal) {
-
-        modal.style.display = "none";
-
+        document.getElementById("code").textContent =
+            "Unable to load the code.\n\n" +
+            error.message;
     }
+}
 
-};
+
+function closeViewer() {
+
+    document.getElementById("viewer").style.display = "none";
+
+    document.getElementById("code").textContent = "";
+
+}
+
 
 </script>
 
