@@ -3,280 +3,507 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Java Problems - Week 6 to Week 13</title>
+
+<title>Java Programming Problems</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
     font-family:Arial,sans-serif;
     background:#f4f6f8;
-    color:#222
+    color:#222;
 }
 
 header{
     background:#24292f;
     color:white;
     text-align:center;
-    padding:30px 15px
+    padding:30px 15px;
 }
 
 header h1{
     margin:0;
-    font-size:30px
+    font-size:28px;
 }
 
 header p{
-    margin-top:8px;
-    color:#c9d1d9
+    margin:8px 0 0;
+    color:#c9d1d9;
 }
 
 .container{
     width:94%;
-    max-width:1200px;
-    margin:30px auto
+    max-width:1100px;
+    margin:30px auto;
 }
 
 .week{
-    margin-bottom:35px
+    background:white;
+    margin-bottom:20px;
+    border-radius:9px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
 .week-title{
     background:#0969da;
     color:white;
-    padding:15px 20px;
-    border-radius:8px 8px 0 0;
-    font-size:23px;
-    font-weight:bold
+    padding:16px 20px;
+    font-size:21px;
+    font-weight:bold;
 }
 
 .problem{
-    background:white;
-    margin-bottom:18px;
-    overflow:hidden;
-    border-radius:0 0 8px 8px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08)
+    border-top:1px solid #ddd;
 }
 
 .problem-title{
-    background:#e9edf2;
-    padding:15px 20px;
-    font-size:18px;
-    font-weight:bold
+    padding:14px 18px;
+    background:#f6f8fa;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.problem-title:hover{
+    background:#eaeef2;
+}
+
+.code{
+    display:none;
+    background:#0d1117;
 }
 
 pre{
     margin:0;
     padding:20px;
-    background:#0d1117;
     color:#e6edf3;
-    overflow-x:auto;
+    font-family:Consolas,"Courier New",monospace;
     font-size:14px;
     line-height:1.6;
+    overflow-x:auto;
     white-space:pre-wrap;
-    word-wrap:break-word
-}
-
-code{
-    font-family:Consolas,"Courier New",monospace
 }
 
 .loading{
-    color:#8b949e
+    padding:20px;
+    color:#8b949e;
 }
 
 .error{
+    padding:20px;
     color:#ff7b72;
-    padding:15px
 }
 
 footer{
     text-align:center;
-    padding:25px;
-    color:#666
+    padding:30px;
+    color:#666;
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <h1>Java Programming Problems</h1>
-<p>Week 6 - Week 13</p>
+
+<p>
+Week 6 - Week 13
+</p>
+
 </header>
 
-<div class="container" id="content"></div>
+
+<div class="container" id="content">
+
+<div class="loading">
+Loading Java problems...
+</div>
+
+</div>
+
 
 <footer>
 Java Programming Practice
 </footer>
 
+
 <script>
 
+/* =====================================================
+   GITHUB REPOSITORY
+===================================================== */
+
 const OWNER = "ohidurrahman2026";
+
 const REPO = "mdohidurrahman251-15-294-01";
+
 const BRANCH = "main";
 
+
+/* =====================================================
+   WEEKS
+===================================================== */
+
 const weeks = [
-    "Week 6",
-    "Week 7",
-    "Week 8",
-    "Week 9",
-    "Week 11",
-    "Week 12",
-    "Week 13"
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13
 ];
 
-const content = document.getElementById("content");
 
-async function getFolder(path){
+/* =====================================================
+   GET ALL FILES FROM REPOSITORY
+===================================================== */
+
+async function getRepositoryFiles(){
 
     const url =
-        https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(path)}?ref=${BRANCH};
+        https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?recursive=1;
 
     const response = await fetch(url);
 
     if(!response.ok){
-        throw new Error("Folder not found");
+
+        throw new Error(
+            "GitHub repository could not be accessed."
+        );
+
     }
 
-    return await response.json();
+    const data = await response.json();
+
+    return data.tree.filter(file =>
+
+        file.type === "blob" &&
+
+        file.path.toLowerCase().endsWith(".java")
+
+    );
+
 }
 
-async function getCode(downloadUrl){
 
-    const response = await fetch(downloadUrl);
+/* =====================================================
+   FIND WEEK NUMBER FROM FILE PATH
+===================================================== */
 
-    if(!response.ok){
-        throw new Error("Code could not be loaded");
+function getWeekNumber(path){
+
+    const lower = path.toLowerCase();
+
+    const patterns = [
+
+        /week[\s_-]*(\d+)/i,
+
+        /wk[\s_-]*(\d+)/i
+
+    ];
+
+    for(const pattern of patterns){
+
+        const match = lower.match(pattern);
+
+        if(match){
+
+            return Number(match[1]);
+
+        }
+
     }
 
-    return await response.text();
+    return null;
+
 }
 
-function createWeek(name){
 
-    const section = document.createElement("section");
+/* =====================================================
+   CREATE WEEK
+===================================================== */
+
+function createWeek(weekNumber){
+
+    const section =
+        document.createElement("section");
+
     section.className = "week";
 
-    const title = document.createElement("div");
+
+    const title =
+        document.createElement("div");
+
     title.className = "week-title";
-    title.textContent = name;
+
+    title.textContent =
+        "Week " + weekNumber;
+
 
     section.appendChild(title);
 
-    const box = document.createElement("div");
-    section.appendChild(box);
 
-    content.appendChild(section);
+    const problems =
+        document.createElement("div");
 
-    return box;
+
+    section.appendChild(problems);
+
+
+    document
+        .getElementById("content")
+        .appendChild(section);
+
+
+    return problems;
+
 }
 
-async function loadWeek(weekName){
 
-    const box = createWeek(weekName);
+/* =====================================================
+   CREATE PROBLEM
+===================================================== */
 
-    box.innerHTML =
-        '<div class="problem">' +
-        '<pre class="loading">Loading...</pre>' +
-        '</div>';
+function createProblem(
+    file,
+    number,
+    parent
+){
 
-    try{
+    const problem =
+        document.createElement("div");
 
-        const files = await getFolder(weekName);
+    problem.className =
+        "problem";
 
-        const javaFiles = files.filter(file =>
-            file.type === "file" &&
-            file.name.toLowerCase().endsWith(".java")
-        );
 
-        box.innerHTML = "";
+    const title =
+        document.createElement("div");
 
-        if(javaFiles.length === 0){
+    title.className =
+        "problem-title";
 
-            box.innerHTML =
-                '<div class="problem">' +
-                '<pre class="error">No Java files found.</pre>' +
-                '</div>';
+
+    title.textContent =
+        number + ". " + file.path;
+
+
+    const codeBox =
+        document.createElement("div");
+
+    codeBox.className =
+        "code";
+
+
+    const loading =
+        document.createElement("div");
+
+    loading.className =
+        "loading";
+
+    loading.textContent =
+        "Loading code...";
+
+
+    codeBox.appendChild(
+        loading
+    );
+
+
+    title.onclick =
+        async function(){
+
+        if(
+            codeBox.style.display ===
+            "block"
+        ){
+
+            codeBox.style.display =
+                "none";
 
             return;
+
         }
 
-        javaFiles.sort((a,b) =>
-            a.name.localeCompare(
-                b.name,
-                undefined,
-                {numeric:true}
-            )
-        );
 
-        for(let i=0;i<javaFiles.length;i++){
+        codeBox.style.display =
+            "block";
 
-            const file = javaFiles[i];
 
-            const problem =
-                document.createElement("div");
+        try{
 
-            problem.className = "problem";
+            const rawURL =
+                `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${file.path
+                    .split("/")
+                    .map(encodeURIComponent)
+                    .join("/")}`;
 
-            const title =
-                document.createElement("div");
 
-            title.className = "problem-title";
+            const response =
+                await fetch(rawURL);
 
-            title.textContent =
-                ${i+1}. ${file.name};
+
+            if(!response.ok){
+
+                throw new Error(
+                    "Code could not be loaded."
+                );
+
+            }
+
+
+            const code =
+                await response.text();
+
+
+            codeBox.innerHTML =
+                "";
+
 
             const pre =
                 document.createElement("pre");
 
-            const code =
-                document.createElement("code");
 
-            code.textContent = "Loading...";
+            pre.textContent =
+                code;
 
-            pre.appendChild(code);
-            problem.appendChild(title);
-            problem.appendChild(pre);
-            box.appendChild(problem);
 
-            try{
+            codeBox.appendChild(
+                pre
+            );
 
-                const source =
-                    await getCode(file.download_url);
 
-                code.textContent = source;
+        }
+        catch(error){
 
-            }catch(error){
+            codeBox.innerHTML =
+                <div class="error">${error.message}</div>;
 
-                code.textContent =
-                    "Unable to load this code.";
-            }
         }
 
-    }catch(error){
+    };
 
-        box.innerHTML =
-            '<div class="problem">' +
-            '<pre class="error">' +
-            'Could not load ' +
-            weekName +
-            '.' +
-            '</pre>' +
-            '</div>';
-    }
+
+    problem.appendChild(
+        title
+    );
+
+    problem.appendChild(
+        codeBox
+    );
+
+
+    parent.appendChild(
+        problem
+    );
+
 }
 
-async function loadAll(){
 
-    for(const week of weeks){
-        await loadWeek(week);
+/* =====================================================
+   LOAD EVERYTHING
+===================================================== */
+
+async function loadPage(){
+
+    const content =
+        document.getElementById(
+            "content"
+        );
+
+
+    content.innerHTML = "";
+
+
+    try{
+
+        const files =
+            await getRepositoryFiles();
+
+
+        for(
+            const weekNumber of weeks
+        ){
+
+            const weekFiles =
+                files.filter(
+                    file =>
+                        getWeekNumber(
+                            file.path
+                        ) === weekNumber
+                );
+
+
+            const problems =
+                createWeek(
+                    weekNumber
+                );
+
+
+            weekFiles.sort(
+                (a,b) =>
+                    a.path.localeCompare(
+                        b.path,
+                        undefined,
+                        {
+                            numeric:true
+                        }
+                    )
+            );
+
+
+            if(
+                weekFiles.length === 0
+            ){
+
+                problems.innerHTML =
+                    `<div class="error">
+                        No Java files found for Week ${weekNumber}.
+                    </div>`;
+
+                continue;
+
+            }
+
+
+            weekFiles.forEach(
+                (file,index) => {
+
+                    createProblem(
+                        file,
+                        index + 1,
+                        problems
+                    );
+
+                }
+            );
+
+        }
+
     }
+    catch(error){
+
+        content.innerHTML =
+            `<div class="error">
+                ${error.message}
+            </div>`;
+
+    }
+
 }
 
-loadAll();
+
+loadPage();
 
 </script>
 
