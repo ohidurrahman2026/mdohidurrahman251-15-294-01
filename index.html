@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Problems - Weekly Assignments</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f8fa;
+            color: #24292f;
+        }
+
+        header {
+            background: #24292f;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #c9d1d9;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .summary {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .summary h2 {
+            margin-bottom: 10px;
+            color: #0969da;
+        }
+
+        .weeks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .week-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .week-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .week-title {
+            background: #0969da;
+            color: white;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .week-title h2 {
+            font-size: 24px;
+        }
+
+        .problem-list {
+            padding: 20px;
+        }
+
+        .problem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            background: #f6f8fa;
+        }
+
+        .problem:last-child {
+            margin-bottom: 0;
+        }
+
+        .problem-name {
+            font-weight: bold;
+        }
+
+        .btn {
+            text-decoration: none;
+            background: #238636;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #1a7f37;
+        }
+
+        footer {
+            margin-top: 50px;
+            background: #24292f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 500px) {
+            .problem {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Java Programming Problems</h1>
+    <p>Weekly Problem Solving Repository</p>
+</header>
+
+
+<div class="container">
+
+    <div class="summary">
+        <h2>My Weekly Assignments</h2>
+        <p>
+            Total Weeks: 7 |
+            Total Problems: 14
+        </p>
+    </div>
+
+
+    <div class="weeks">
+
+        <!-- WEEK 6 -->
+        <div class="week-card">
+
+            <div class="week-title">
+                <h2>Week 6</h2>
+            </div>
+
+            <div class="problem-list">
+
+                <div class="problem">
+                    <span class="problem-name">Problem 1</span>
+                    <a href="week-6/problem1.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+                <div class="problem">
+                    <span class="problem-name">Problem 2</span>
+                    <a href="week-6/problem2.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+                <div class="problem">
+                    <span class="problem-name">Problem 3</span>
+                    <a href="week-6/problem3.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- WEEK 7 -->
+        <div class="week-card">
+
+            <div class="week-title">
+                <h2>Week 7</h2>
+            </div>
+
+            <div class="problem-list">
+
+                <div class="problem">
+                    <span class="problem-name">Problem 1</span>
+                    <a href="week-7/problem1.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+                <div class="problem">
+                    <span class="problem-name">Problem 2</span>
+                    <a href="week-7/problem2.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+                <div class="problem">
+                    <span class="problem-name">Problem 3</span>
+                    <a href="week-7/problem3.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- WEEK 8 -->
+        <div class="week-card">
+
+            <div class="week-title">
+                <h2>Week 8</h2>
+            </div>
+
+            <div class="problem-list">
+
+                <div class="problem">
+                    <span class="problem-name">Problem 1</span>
+                    <a href="week-8/problem1.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+                <div class="problem">
+                    <span class="problem-name">Problem 2</span>
+                    <a href="week-8/problem2.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+                <div class="problem">
+                    <span class="problem-name">Problem 3</span>
+                    <a href="week-8/problem3.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- WEEK 9 -->
+        <div class="week-card">
+
+            <div class="week-title">
+                <h2>Week 9</h2>
+            </div>
+
+            <div class="problem-list">
+
+                <div class="problem">
+                    <span class="problem-name">Problem 1</span>
+                    <a href="week-9/problem1.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- WEEK 11 -->
+        <div class="week-card">
+
+            <div class="week-title">
+                <h2>Week 11</h2>
+            </div>
+
+            <div class="problem-list">
+
+                <div class="problem">
+                    <span class="problem-name">Problem 1</span>
+                    <a href="week-11/problem1.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- WEEK 12 -->
+        <div class="week-card">
+
+            <div class="week-title">
+                <h2>Week 12</h2>
+            </div>
+
+            <div class="problem-list">
+
+                <div class="problem">
+                    <span class="problem-name">Problem 1</span>
+                    <a href="week-12/problem1.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+                <div class="problem">
+                    <span class="problem-name">Problem 2</span>
+                    <a href="week-12/problem2.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- WEEK 13 -->
+        <div class="week-card">
+
+            <div class="week-title">
+                <h2>Week 13</h2>
+            </div>
+
+            <div class="problem-list">
+
+                <div class="problem">
+                    <span class="problem-name">Problem 1</span>
+                    <a href="week-13/problem1.html" class="btn">
+                        View Problem
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p>© 2026 Java Problems Repository | MD Ohidur Rahman</p>
+</footer>
+
+</body>
+</html>
