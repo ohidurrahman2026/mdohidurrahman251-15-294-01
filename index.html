@@ -1,511 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Java Programming Problems</title>
+    <title>Java Programming Problems</title>
 
-<style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-*{
-    box-sizing:border-box;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f6f8;
-    color:#222;
-}
+        header {
+            background-color: #1f2933;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
 
-header{
-    background:#24292f;
-    color:white;
-    text-align:center;
-    padding:30px 15px;
-}
+        header h1 {
+            margin-bottom: 8px;
+        }
 
-header h1{
-    margin:0;
-    font-size:28px;
-}
+        header p {
+            color: #cbd5e1;
+        }
 
-header p{
-    margin:8px 0 0;
-    color:#c9d1d9;
-}
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
 
-.container{
-    width:94%;
-    max-width:1100px;
-    margin:30px auto;
-}
+        .week-title {
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 5px solid #2563eb;
+            font-size: 24px;
+        }
 
-.week{
-    background:white;
-    margin-bottom:20px;
-    border-radius:9px;
-    overflow:hidden;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
+        .problems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
 
-.week-title{
-    background:#0969da;
-    color:white;
-    padding:16px 20px;
-    font-size:21px;
-    font-weight:bold;
-}
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ddd;
+        }
 
-.problem{
-    border-top:1px solid #ddd;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            border-color: #2563eb;
+        }
 
-.problem-title{
-    padding:14px 18px;
-    background:#f6f8fa;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
+        .problem-number {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 7px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-.problem-title:hover{
-    background:#eaeef2;
-}
+        .card h3 {
+            margin-bottom: 10px;
+        }
 
-.code{
-    display:none;
-    background:#0d1117;
-}
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
 
-pre{
-    margin:0;
-    padding:20px;
-    color:#e6edf3;
-    font-family:Consolas,"Courier New",monospace;
-    font-size:14px;
-    line-height:1.6;
-    overflow-x:auto;
-    white-space:pre-wrap;
-}
-
-.loading{
-    padding:20px;
-    color:#8b949e;
-}
-
-.error{
-    padding:20px;
-    color:#ff7b72;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#666;
-}
-
-</style>
+        footer {
+            margin-top: 50px;
+            background: #1f2933;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-
-<h1>Java Programming Problems</h1>
-
-<p>
-Week 6 - Week 13
-</p>
-
+    <h1>Java Programming Problems</h1>
+    <p>Week 6 - Week 13</p>
 </header>
 
 
-<div class="container" id="content">
+<div class="container">
 
-<div class="loading">
-Loading Java problems...
-</div>
+
+    <!-- WEEK 6 -->
+
+    <h2 class="week-title">Week 6</h2>
+
+    <div class="problems">
+
+        <a href="week-6/problem1.html" class="card">
+            <div class="problem-number">Problem 1</div>
+            <h3>Week 6 - Problem 1</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+        <a href="week-6/problem2.html" class="card">
+            <div class="problem-number">Problem 2</div>
+            <h3>Week 6 - Problem 2</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+        <a href="week-6/problem3.html" class="card">
+            <div class="problem-number">Problem 3</div>
+            <h3>Week 6 - Problem 3</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+    </div>
+
+
+    <!-- WEEK 7 -->
+
+    <h2 class="week-title">Week 7</h2>
+
+    <div class="problems">
+
+        <a href="week-7/problem1.html" class="card">
+            <div class="problem-number">Problem 1</div>
+            <h3>Week 7 - Problem 1</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+        <a href="week-7/problem2.html" class="card">
+            <div class="problem-number">Problem 2</div>
+            <h3>Week 7 - Problem 2</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+        <a href="week-7/problem3.html" class="card">
+            <div class="problem-number">Problem 3</div>
+            <h3>Week 7 - Problem 3</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+    </div>
+
+
+    <!-- WEEK 8 -->
+
+    <h2 class="week-title">Week 8</h2>
+
+    <div class="problems">
+
+        <a href="week-8/problem1.html" class="card">
+            <div class="problem-number">Problem 1</div>
+            <h3>Week 8 - Problem 1</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+        <a href="week-8/problem2.html" class="card">
+            <div class="problem-number">Problem 2</div>
+            <h3>Week 8 - Problem 2</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+        <a href="week-8/problem3.html" class="card">
+            <div class="problem-number">Problem 3</div>
+            <h3>Week 8 - Problem 3</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+    </div>
+
+
+    <!-- WEEK 9 -->
+
+    <h2 class="week-title">Week 9</h2>
+
+    <div class="problems">
+
+        <a href="week-9/problem1.html" class="card">
+            <div class="problem-number">Problem 1</div>
+            <h3>Week 9 - Problem 1</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+    </div>
+
+
+    <!-- WEEK 11 -->
+
+    <h2 class="week-title">Week 11</h2>
+
+    <div class="problems">
+
+        <a href="week-11/problem1.html" class="card">
+            <div class="problem-number">Problem 1</div>
+            <h3>Week 11 - Problem 1</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+    </div>
+
+
+    <!-- WEEK 12 -->
+
+    <h2 class="week-title">Week 12</h2>
+
+    <div class="problems">
+
+        <a href="week-12/problem1.html" class="card">
+            <div class="problem-number">Problem 1</div>
+            <h3>Week 12 - Problem 1</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+        <a href="week-12/problem2.html" class="card">
+            <div class="problem-number">Problem 2</div>
+            <h3>Week 12 - Problem 2</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+    </div>
+
+
+    <!-- WEEK 13 -->
+
+    <h2 class="week-title">Week 13</h2>
+
+    <div class="problems">
+
+        <a href="week-13/problem1.html" class="card">
+            <div class="problem-number">Problem 1</div>
+            <h3>Week 13 - Problem 1</h3>
+            <p>Click here to view the solution.</p>
+        </a>
+
+    </div>
+
 
 </div>
 
 
 <footer>
-Java Programming Practice
+    <p>Java Programming Practice</p>
 </footer>
-
-
-<script>
-
-/* =====================================================
-   GITHUB REPOSITORY
-===================================================== */
-
-const OWNER = "ohidurrahman2026";
-
-const REPO = "mdohidurrahman251-15-294-01";
-
-const BRANCH = "main";
-
-
-/* =====================================================
-   WEEKS
-===================================================== */
-
-const weeks = [
-    6,
-    7,
-    8,
-    9,
-    11,
-    12,
-    13
-];
-
-
-/* =====================================================
-   GET ALL FILES FROM REPOSITORY
-===================================================== */
-
-async function getRepositoryFiles(){
-
-    const url =
-        https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?recursive=1;
-
-    const response = await fetch(url);
-
-    if(!response.ok){
-
-        throw new Error(
-            "GitHub repository could not be accessed."
-        );
-
-    }
-
-    const data = await response.json();
-
-    return data.tree.filter(file =>
-
-        file.type === "blob" &&
-
-        file.path.toLowerCase().endsWith(".java")
-
-    );
-
-}
-
-
-/* =====================================================
-   FIND WEEK NUMBER FROM FILE PATH
-===================================================== */
-
-function getWeekNumber(path){
-
-    const lower = path.toLowerCase();
-
-    const patterns = [
-
-        /week[\s_-]*(\d+)/i,
-
-        /wk[\s_-]*(\d+)/i
-
-    ];
-
-    for(const pattern of patterns){
-
-        const match = lower.match(pattern);
-
-        if(match){
-
-            return Number(match[1]);
-
-        }
-
-    }
-
-    return null;
-
-}
-
-
-/* =====================================================
-   CREATE WEEK
-===================================================== */
-
-function createWeek(weekNumber){
-
-    const section =
-        document.createElement("section");
-
-    section.className = "week";
-
-
-    const title =
-        document.createElement("div");
-
-    title.className = "week-title";
-
-    title.textContent =
-        "Week " + weekNumber;
-
-
-    section.appendChild(title);
-
-
-    const problems =
-        document.createElement("div");
-
-
-    section.appendChild(problems);
-
-
-    document
-        .getElementById("content")
-        .appendChild(section);
-
-
-    return problems;
-
-}
-
-
-/* =====================================================
-   CREATE PROBLEM
-===================================================== */
-
-function createProblem(
-    file,
-    number,
-    parent
-){
-
-    const problem =
-        document.createElement("div");
-
-    problem.className =
-        "problem";
-
-
-    const title =
-        document.createElement("div");
-
-    title.className =
-        "problem-title";
-
-
-    title.textContent =
-        number + ". " + file.path;
-
-
-    const codeBox =
-        document.createElement("div");
-
-    codeBox.className =
-        "code";
-
-
-    const loading =
-        document.createElement("div");
-
-    loading.className =
-        "loading";
-
-    loading.textContent =
-        "Loading code...";
-
-
-    codeBox.appendChild(
-        loading
-    );
-
-
-    title.onclick =
-        async function(){
-
-        if(
-            codeBox.style.display ===
-            "block"
-        ){
-
-            codeBox.style.display =
-                "none";
-
-            return;
-
-        }
-
-
-        codeBox.style.display =
-            "block";
-
-
-        try{
-
-            const rawURL =
-                `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${file.path
-                    .split("/")
-                    .map(encodeURIComponent)
-                    .join("/")}`;
-
-
-            const response =
-                await fetch(rawURL);
-
-
-            if(!response.ok){
-
-                throw new Error(
-                    "Code could not be loaded."
-                );
-
-            }
-
-
-            const code =
-                await response.text();
-
-
-            codeBox.innerHTML =
-                "";
-
-
-            const pre =
-                document.createElement("pre");
-
-
-            pre.textContent =
-                code;
-
-
-            codeBox.appendChild(
-                pre
-            );
-
-
-        }
-        catch(error){
-
-            codeBox.innerHTML =
-                <div class="error">${error.message}</div>;
-
-        }
-
-    };
-
-
-    problem.appendChild(
-        title
-    );
-
-    problem.appendChild(
-        codeBox
-    );
-
-
-    parent.appendChild(
-        problem
-    );
-
-}
-
-
-/* =====================================================
-   LOAD EVERYTHING
-===================================================== */
-
-async function loadPage(){
-
-    const content =
-        document.getElementById(
-            "content"
-        );
-
-
-    content.innerHTML = "";
-
-
-    try{
-
-        const files =
-            await getRepositoryFiles();
-
-
-        for(
-            const weekNumber of weeks
-        ){
-
-            const weekFiles =
-                files.filter(
-                    file =>
-                        getWeekNumber(
-                            file.path
-                        ) === weekNumber
-                );
-
-
-            const problems =
-                createWeek(
-                    weekNumber
-                );
-
-
-            weekFiles.sort(
-                (a,b) =>
-                    a.path.localeCompare(
-                        b.path,
-                        undefined,
-                        {
-                            numeric:true
-                        }
-                    )
-            );
-
-
-            if(
-                weekFiles.length === 0
-            ){
-
-                problems.innerHTML =
-                    `<div class="error">
-                        No Java files found for Week ${weekNumber}.
-                    </div>`;
-
-                continue;
-
-            }
-
-
-            weekFiles.forEach(
-                (file,index) => {
-
-                    createProblem(
-                        file,
-                        index + 1,
-                        problems
-                    );
-
-                }
-            );
-
-        }
-
-    }
-    catch(error){
-
-        content.innerHTML =
-            `<div class="error">
-                ${error.message}
-            </div>`;
-
-    }
-
-}
-
-
-loadPage();
-
-</script>
 
 </body>
 </html>
