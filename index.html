@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Java Programming Problems</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,34 +17,36 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #222;
+            background-color: #f4f6f8;
+            color: #24292f;
         }
 
         header {
-            background: #24292f;
+            background-color: #24292f;
             color: white;
             text-align: center;
-            padding: 18px;
+            padding: 20px;
         }
 
         header h1 {
             font-size: 26px;
+            margin-bottom: 6px;
         }
 
         header p {
-            margin-top: 6px;
+            font-size: 14px;
             color: #c9d1d9;
         }
 
         .container {
-            max-width: 900px;
+            width: 90%;
+            max-width: 1000px;
             margin: auto;
-            padding: 35px 20px;
+            padding: 35px 0;
         }
 
         .week {
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
         .week h2 {
@@ -54,29 +58,29 @@
 
         .problems {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
         }
 
         .card {
             display: block;
+            background-color: white;
             text-decoration: none;
-            color: #222;
-            background: white;
+            color: #24292f;
             padding: 18px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             transition: 0.2s;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.18);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
 
         .number {
             display: inline-block;
-            background: #0969da;
+            background-color: #0969da;
             color: white;
             padding: 5px 12px;
             border-radius: 4px;
@@ -87,216 +91,329 @@
 
         .card h3 {
             margin-bottom: 8px;
+            font-size: 17px;
         }
 
         .card p {
-            font-size: 14px;
+            font-size: 13px;
             color: #57606a;
         }
 
         footer {
+            background-color: #24292f;
+            color: white;
             text-align: center;
-            padding: 20px;
-            color: #57606a;
+            padding: 18px;
+            margin-top: 30px;
         }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <h1>Java Programming Problems</h1>
-    <p>Week 6 - Week 13</p>
-</header>
-
-<div class="container">
-
-    <!-- WEEK 6 -->
-    <section class="week">
-        <h2>Week 6</h2>
-
-        <div class="problems">
-
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-6/251-15-569_Abstract%20Classes.java"
-               target="_blank">
-                <span class="number">Problem 1</span>
-                <h3>Abstract Classes</h3>
-                <p>Click to view Java code.</p>
-            </a>
-
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-6/251-15-569_Java%20Abstract%20Class.java"
-               target="_blank">
-                <span class="number">Problem 2</span>
-                <h3>Java Abstract Class</h3>
-                <p>Click to view Java code.</p>
-            </a>
-
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-6/251-15-569_Java%20Interface.java"
-               target="_blank">
-                <span class="number">Problem 3</span>
-                <h3>Java Interface</h3>
-                <p>Click to view Java code.</p>
-            </a>
-
-        </div>
-    </section>
+    <header>
+        <h1>Java Programming Problems</h1>
+        <p>Week 6 - Week 13</p>
+    </header>
 
 
-    <!-- WEEK 7 -->
-    <section class="week">
-        <h2>Week 7</h2>
+    <div class="container">
 
-        <div class="problems">
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-7/251-15-569_Inheritance.java"
-               target="_blank">
-                <span class="number">Problem 1</span>
-                <h3>Inheritance</h3>
-                <p>Click to view Java code.</p>
-            </a>
+        <!-- WEEK 6 -->
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-7/251-15-569_Java%20Inheritance%20II.java"
-               target="_blank">
-                <span class="number">Problem 2</span>
-                <h3>Java Inheritance II</h3>
-                <p>Click to view Java code.</p>
-            </a>
+        <div class="week">
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-7/251-15-569_Java%20Method%20Overriding.java"
-               target="_blank">
-                <span class="number">Problem 3</span>
-                <h3>Method Overriding</h3>
-                <p>Click to view Java code.</p>
-            </a>
+            <h2>Week 6</h2>
+
+            <div class="problems">
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-6/251-15-569_Abstract%20Classes.java"
+                   target="_blank">
+
+                    <div class="number">Problem 1</div>
+
+                    <h3>Abstract Classes</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-6/251-15-569_Java%20Abstract%20Class.java"
+                   target="_blank">
+
+                    <div class="number">Problem 2</div>
+
+                    <h3>Java Abstract Class</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-6/251-15-569_Java%20Interface.java"
+                   target="_blank">
+
+                    <div class="number">Problem 3</div>
+
+                    <h3>Java Interface</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+            </div>
 
         </div>
-    </section>
 
 
-    <!-- WEEK 8 -->
-    <section class="week">
-        <h2>Week 8</h2>
 
-        <div class="problems">
+        <!-- WEEK 7 -->
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-8/251-15-156_Java%20Exception%20Handling-try%20catch.java"
-               target="_blank">
-                <span class="number">Problem 1</span>
-                <h3>Try Catch</h3>
-                <p>Click to view Java code.</p>
-            </a>
+        <div class="week">
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-8/251-15-156_Java%20Exception%20Handling.java"
-               target="_blank">
-                <span class="number">Problem 2</span>
-                <h3>Exception Handling</h3>
-                <p>Click to view Java code.</p>
-            </a>
+            <h2>Week 7</h2>
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-8/251-15-569_More%20Exceptions.java"
-               target="_blank">
-                <span class="number">Problem 3</span>
-                <h3>More Exceptions</h3>
-                <p>Click to view Java code.</p>
-            </a>
-
-        </div>
-    </section>
+            <div class="problems">
 
 
-    <!-- WEEK 9 -->
-    <section class="week">
-        <h2>Week 9</h2>
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-7/251-15-569_Inheritance.java"
+                   target="_blank">
 
-        <div class="problems">
+                    <div class="number">Problem 1</div>
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-9/Problem01.java"
-               target="_blank">
-                <span class="number">Problem 1</span>
-                <h3>Week 9 - Problem 1</h3>
-                <p>Click to view Java code.</p>
-            </a>
+                    <h3>Inheritance</h3>
 
-        </div>
-    </section>
+                    <p>Click to view the Java solution.</p>
+
+                </a>
 
 
-    <!-- WEEK 11 -->
-    <section class="week">
-        <h2>Week 11</h2>
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-7/251-15-569_Java%20Inheritance%20II.java"
+                   target="_blank">
 
-        <div class="problems">
+                    <div class="number">Problem 2</div>
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-11/251-15-569_java_comparator.java"
-               target="_blank">
-                <span class="number">Problem 1</span>
-                <h3>Java Comparator</h3>
-                <p>Click to view Java code.</p>
-            </a>
+                    <h3>Java Inheritance II</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-7/251-15-569_Java%20Method%20Overriding.java"
+                   target="_blank">
+
+                    <div class="number">Problem 3</div>
+
+                    <h3>Java Method Overriding</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+            </div>
 
         </div>
-    </section>
 
 
-    <!-- WEEK 12 -->
-    <section class="week">
-        <h2>Week 12</h2>
 
-        <div class="problems">
+        <!-- WEEK 8 -->
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-12/251-15-569_Java%20Comparator.java"
-               target="_blank">
-                <span class="number">Problem 1</span>
-                <h3>Java Comparator</h3>
-                <p>Click to view Java code.</p>
-            </a>
+        <div class="week">
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-12/251-15-569_Java%20Singleton%20Pattern.java"
-               target="_blank">
-                <span class="number">Problem 2</span>
-                <h3>Singleton Pattern</h3>
-                <p>Click to view Java code.</p>
-            </a>
+            <h2>Week 8</h2>
+
+            <div class="problems">
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-8/251-15-156_Java%20Exception%20Handling-try%20catch.java"
+                   target="_blank">
+
+                    <div class="number">Problem 1</div>
+
+                    <h3>Try Catch</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-8/251-15-156_Java%20Exception%20Handling.java"
+                   target="_blank">
+
+                    <div class="number">Problem 2</div>
+
+                    <h3>Exception Handling</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-8/251-15-569_More%20Exceptions.java"
+                   target="_blank">
+
+                    <div class="number">Problem 3</div>
+
+                    <h3>More Exceptions</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+            </div>
 
         </div>
-    </section>
 
 
-    <!-- WEEK 13 -->
-    <section class="week">
-        <h2>Week 13</h2>
 
-        <div class="problems">
+        <!-- WEEK 9 -->
 
-            <a class="card"
-               href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-13/251-15-569_Java%20Exception%20Handling.java"
-               target="_blank">
-                <span class="number">Problem 1</span>
-                <h3>Java Exception Handling</h3>
-                <p>Click to view Java code.</p>
-            </a>
+        <div class="week">
+
+            <h2>Week 9</h2>
+
+            <div class="problems">
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-9/Problem01.java"
+                   target="_blank">
+
+                    <div class="number">Problem 1</div>
+
+                    <h3>Week 9 - Problem 1</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+            </div>
 
         </div>
-    </section>
 
-</div>
 
-<footer>
-    © 2026 Java Programming Problems
-</footer>
+
+        <!-- WEEK 11 -->
+
+        <div class="week">
+
+            <h2>Week 11</h2>
+
+            <div class="problems">
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-11/251-15-569_java_comparator.java"
+                   target="_blank">
+
+                    <div class="number">Problem 1</div>
+
+                    <h3>Java Comparator</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WEEK 12 -->
+
+        <div class="week">
+
+            <h2>Week 12</h2>
+
+            <div class="problems">
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-12/251-15-569_Java%20Comparator.java"
+                   target="_blank">
+
+                    <div class="number">Problem 1</div>
+
+                    <h3>Java Comparator</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-12/251-15-569_Java%20Singleton%20Pattern.java"
+                   target="_blank">
+
+                    <div class="number">Problem 2</div>
+
+                    <h3>Java Singleton Pattern</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WEEK 13 -->
+
+        <div class="week">
+
+            <h2>Week 13</h2>
+
+            <div class="problems">
+
+
+                <a class="card"
+                   href="https://github.com/ohidurrahman2026/mdohidurrahman251-15-294-01/blob/main/week-13/251-15-569_Java%20Exception%20Handling.java"
+                   target="_blank">
+
+                    <div class="number">Problem 1</div>
+
+                    <h3>Java Exception Handling</h3>
+
+                    <p>Click to view the Java solution.</p>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <footer>
+        <p>© 2026 Java Programming Problems</p>
+    </footer>
+
 
 </body>
+
 </html>
