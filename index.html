@@ -27,16 +27,11 @@
         }
 
         header h1 {
-            font-size: 32px;
             margin-bottom: 10px;
         }
 
-        header p {
-            color: #c9d1d9;
-        }
-
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -112,7 +107,6 @@
             background: #1a7f37;
         }
 
-        /* POPUP */
         .modal {
             display: none;
             position: fixed;
@@ -121,16 +115,16 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background: rgba(0,0,0,0.6);
+            overflow-y: auto;
+            background: rgba(0,0,0,0.65);
         }
 
         .modal-content {
             background: white;
-            margin: 8% auto;
+            margin: 40px auto;
             padding: 30px;
             width: 90%;
-            max-width: 800px;
+            max-width: 900px;
             border-radius: 12px;
         }
 
@@ -138,7 +132,6 @@
             float: right;
             font-size: 30px;
             cursor: pointer;
-            color: #666;
         }
 
         .close:hover {
@@ -150,14 +143,32 @@
             margin-bottom: 20px;
         }
 
+        .file-name {
+            color: #57606a;
+            margin-bottom: 15px;
+        }
+
         .code-box {
             background: #24292f;
-            color: white;
+            color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             overflow-x: auto;
-            margin-top: 15px;
-            white-space: pre-wrap;
+            white-space: pre;
+            font-family: Consolas, monospace;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+        }
+
+        .error {
+            color: red;
+            padding: 20px;
         }
 
         footer {
@@ -172,11 +183,11 @@
             .problem {
                 flex-direction: column;
                 gap: 12px;
-                text-align: center;
             }
 
-            header h1 {
-                font-size: 25px;
+            .modal-content {
+                width: 95%;
+                padding: 20px;
             }
         }
     </style>
@@ -200,22 +211,31 @@
 
         <!-- WEEK 6 -->
         <div class="week-card">
-            <div class="week-title"><h2>Week 6</h2></div>
+            <div class="week-title">
+                <h2>Week 6</h2>
+            </div>
+
             <div class="problem-list">
 
                 <div class="problem">
                     <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('Week 6 - Problem 1')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-6', 0)">
+                        View Problem
+                    </button>
                 </div>
 
                 <div class="problem">
                     <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('Week 6 - Problem 2')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-6', 1)">
+                        View Problem
+                    </button>
                 </div>
 
                 <div class="problem">
                     <span class="problem-name">Problem 3</span>
-                    <button class="btn" onclick="showProblem('Week 6 - Problem 3')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-6', 2)">
+                        View Problem
+                    </button>
                 </div>
 
             </div>
@@ -224,22 +244,31 @@
 
         <!-- WEEK 7 -->
         <div class="week-card">
-            <div class="week-title"><h2>Week 7</h2></div>
+            <div class="week-title">
+                <h2>Week 7</h2>
+            </div>
+
             <div class="problem-list">
 
                 <div class="problem">
                     <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('Week 7 - Problem 1')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-7', 0)">
+                        View Problem
+                    </button>
                 </div>
 
                 <div class="problem">
                     <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('Week 7 - Problem 2')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-7', 1)">
+                        View Problem
+                    </button>
                 </div>
 
                 <div class="problem">
                     <span class="problem-name">Problem 3</span>
-                    <button class="btn" onclick="showProblem('Week 7 - Problem 3')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-7', 2)">
+                        View Problem
+                    </button>
                 </div>
 
             </div>
@@ -248,22 +277,31 @@
 
         <!-- WEEK 8 -->
         <div class="week-card">
-            <div class="week-title"><h2>Week 8</h2></div>
+            <div class="week-title">
+                <h2>Week 8</h2>
+            </div>
+
             <div class="problem-list">
 
                 <div class="problem">
                     <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('Week 8 - Problem 1')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-8', 0)">
+                        View Problem
+                    </button>
                 </div>
 
                 <div class="problem">
                     <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('Week 8 - Problem 2')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-8', 1)">
+                        View Problem
+                    </button>
                 </div>
 
                 <div class="problem">
                     <span class="problem-name">Problem 3</span>
-                    <button class="btn" onclick="showProblem('Week 8 - Problem 3')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-8', 2)">
+                        View Problem
+                    </button>
                 </div>
 
             </div>
@@ -272,12 +310,17 @@
 
         <!-- WEEK 9 -->
         <div class="week-card">
-            <div class="week-title"><h2>Week 9</h2></div>
+            <div class="week-title">
+                <h2>Week 9</h2>
+            </div>
+
             <div class="problem-list">
 
                 <div class="problem">
                     <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('Week 9 - Problem 1')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-9', 0)">
+                        View Problem
+                    </button>
                 </div>
 
             </div>
@@ -286,12 +329,17 @@
 
         <!-- WEEK 11 -->
         <div class="week-card">
-            <div class="week-title"><h2>Week 11</h2></div>
+            <div class="week-title">
+                <h2>Week 11</h2>
+            </div>
+
             <div class="problem-list">
 
                 <div class="problem">
                     <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('Week 11 - Problem 1')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-11', 0)">
+                        View Problem
+                    </button>
                 </div>
 
             </div>
@@ -300,17 +348,24 @@
 
         <!-- WEEK 12 -->
         <div class="week-card">
-            <div class="week-title"><h2>Week 12</h2></div>
+            <div class="week-title">
+                <h2>Week 12</h2>
+            </div>
+
             <div class="problem-list">
 
                 <div class="problem">
                     <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('Week 12 - Problem 1')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-12', 0)">
+                        View Problem
+                    </button>
                 </div>
 
                 <div class="problem">
                     <span class="problem-name">Problem 2</span>
-                    <button class="btn" onclick="showProblem('Week 12 - Problem 2')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-12', 1)">
+                        View Problem
+                    </button>
                 </div>
 
             </div>
@@ -319,43 +374,43 @@
 
         <!-- WEEK 13 -->
         <div class="week-card">
-            <div class="week-title"><h2>Week 13</h2></div>
+            <div class="week-title">
+                <h2>Week 13</h2>
+            </div>
+
             <div class="problem-list">
 
                 <div class="problem">
                     <span class="problem-name">Problem 1</span>
-                    <button class="btn" onclick="showProblem('Week 13 - Problem 1')">View Problem</button>
+                    <button class="btn" onclick="showProblem('week-13', 0)">
+                        View Problem
+                    </button>
                 </div>
 
             </div>
         </div>
 
     </div>
+
 </div>
 
 
-<!-- POPUP -->
+<!-- MODAL -->
+
 <div id="problemModal" class="modal">
 
     <div class="modal-content">
 
-        <span class="close" onclick="closeProblem()">&times;</span>
+        <span class="close" onclick="closeProblem()">
+            &times;
+        </span>
 
         <h2 id="modalTitle"></h2>
 
-        <p>
-            এখানে এই problem-এর description এবং solution থাকবে।
-        </p>
+        <p class="file-name" id="fileName"></p>
 
-        <div class="code-box">
-public class Main {
-
-    public static void main(String[] args) {
-
-        // Your Java solution here
-
-    }
-}
+        <div id="codeArea" class="loading">
+            Loading Java code...
         </div>
 
     </div>
@@ -370,26 +425,134 @@ public class Main {
 
 <script>
 
-function showProblem(problemName) {
+const username = "ohidurrahman2026";
+const repository = "mdohidurrahman251-15-294-01";
 
-    document.getElementById("modalTitle").innerText = problemName;
 
-    document.getElementById("problemModal").style.display = "block";
+async function showProblem(folder, problemIndex) {
+
+    const modal = document.getElementById("problemModal");
+    const title = document.getElementById("modalTitle");
+    const fileName = document.getElementById("fileName");
+    const codeArea = document.getElementById("codeArea");
+
+    modal.style.display = "block";
+
+    title.innerText =
+        folder.replace("-", " ").toUpperCase() +
+        " - Problem " +
+        (problemIndex + 1);
+
+    fileName.innerText = "";
+
+    codeArea.className = "loading";
+    codeArea.innerText = "Loading your actual Java code...";
+
+
+    try {
+
+        const apiURL =
+            `https://api.github.com/repos/${username}/${repository}/contents/${folder}`;
+
+        const response = await fetch(apiURL);
+
+        if (!response.ok) {
+            throw new Error("Folder not found");
+        }
+
+        const files = await response.json();
+
+
+        const javaFiles = files
+            .filter(file =>
+                file.type === "file" &&
+                file.name.toLowerCase().endsWith(".java")
+            )
+            .sort((a, b) =>
+                a.name.localeCompare(
+                    b.name,
+                    undefined,
+                    {
+                        numeric: true,
+                        sensitivity: "base"
+                    }
+                )
+            );
+
+
+        if (!javaFiles[problemIndex]) {
+
+            throw new Error(
+                "Java file not found for this problem"
+            );
+        }
+
+
+        const selectedFile =
+            javaFiles[problemIndex];
+
+
+        title.innerText =
+            folder.replace("-", " ").toUpperCase() +
+            " - " +
+            selectedFile.name;
+
+
+        fileName.innerText =
+            "File: " + selectedFile.name;
+
+
+        const codeResponse =
+            await fetch(selectedFile.download_url);
+
+
+        if (!codeResponse.ok) {
+            throw new Error("Could not load Java code");
+        }
+
+
+        const code =
+            await codeResponse.text();
+
+
+        codeArea.className = "code-box";
+
+        codeArea.textContent = code;
+
+
+    } catch (error) {
+
+        codeArea.className = "error";
+
+        codeArea.innerHTML = `
+            <h3>Problem code could not be loaded.</h3>
+            <p>${error.message}</p>
+        `;
+
+    }
+
 }
+
 
 function closeProblem() {
 
     document.getElementById("problemModal").style.display = "none";
+
 }
+
 
 window.onclick = function(event) {
 
-    let modal = document.getElementById("problemModal");
+    const modal =
+        document.getElementById("problemModal");
 
-    if (event.target == modal) {
+    if (event.target === modal) {
+
         modal.style.display = "none";
+
     }
-}
+
+};
 
 </script>
 
