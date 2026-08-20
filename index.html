@@ -1,14 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Java Problems - Weekly Assignments</title>
+    <title>Java Programming Problems</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -17,11 +15,9 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
+            background: #f5f7fa;
             color: #24292f;
         }
-
-        /* HEADER */
 
         header {
             background: #24292f;
@@ -37,10 +33,7 @@
 
         header p {
             color: #c9d1d9;
-            font-size: 16px;
         }
-
-        /* CONTAINER */
 
         .container {
             max-width: 1100px;
@@ -48,15 +41,13 @@
             padding: 0 20px;
         }
 
-        /* SUMMARY */
-
         .summary {
             background: white;
-            text-align: center;
             padding: 25px;
+            text-align: center;
             border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .summary h2 {
@@ -64,52 +55,39 @@
             margin-bottom: 10px;
         }
 
-        /* WEEK GRID */
-
         .weeks {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 22px;
+            gap: 25px;
         }
-
-        /* WEEK CARD */
 
         .week-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .week-title {
             background: #0969da;
             color: white;
             text-align: center;
-            padding: 16px;
-        }
-
-        .week-title h2 {
-            font-size: 22px;
+            padding: 18px;
         }
 
         .problem-list {
             padding: 15px;
         }
 
-        /* PROBLEM */
-
         .problem {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             padding: 14px;
             margin-bottom: 12px;
-
+            background: #f6f8fa;
             border: 1px solid #d0d7de;
             border-radius: 8px;
-
-            background: #f6f8fa;
         }
 
         .problem:last-child {
@@ -118,97 +96,79 @@
 
         .problem-name {
             font-weight: bold;
-            font-size: 15px;
         }
-
-        /* BUTTON */
 
         .btn {
             border: none;
             background: #238636;
             color: white;
-
             padding: 9px 15px;
-
             border-radius: 6px;
-
             cursor: pointer;
-
             font-weight: bold;
-
-            transition: 0.3s;
         }
 
         .btn:hover {
             background: #1a7f37;
-            transform: scale(1.05);
         }
 
-        /* PROBLEM VIEW SECTION */
-
-        #problem-view {
+        /* POPUP */
+        .modal {
             display: none;
-
-            margin-top: 40px;
-
-            background: white;
-
-            border-radius: 12px;
-
-            padding: 30px;
-
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgba(0,0,0,0.6);
         }
 
-        #problem-title {
+        .modal-content {
+            background: white;
+            margin: 8% auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 12px;
+        }
+
+        .close {
+            float: right;
+            font-size: 30px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        #modalTitle {
             color: #0969da;
             margin-bottom: 20px;
         }
 
-        #problem-content {
-            line-height: 1.8;
-            font-size: 16px;
-        }
-
-        .back-btn {
-            margin-top: 25px;
-
-            background: #6e7781;
-
+        .code-box {
+            background: #24292f;
             color: white;
-
-            border: none;
-
-            padding: 10px 18px;
-
-            border-radius: 6px;
-
-            cursor: pointer;
-
-            font-size: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 15px;
+            white-space: pre-wrap;
         }
-
-        .back-btn:hover {
-            background: #57606a;
-        }
-
-        /* FOOTER */
 
         footer {
             background: #24292f;
             color: white;
-
             text-align: center;
-
-            padding: 22px;
-
+            padding: 20px;
             margin-top: 50px;
         }
 
-        /* MOBILE */
-
-        @media(max-width: 600px) {
-
+        @media (max-width: 600px) {
             .problem {
                 flex-direction: column;
                 gap: 12px;
@@ -218,522 +178,220 @@
             header h1 {
                 font-size: 25px;
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
     <h1>Java Programming Problems</h1>
-
     <p>Weekly Problem Solving Assignments</p>
-
 </header>
-
-
-
-<!-- MAIN CONTENT -->
 
 <div class="container">
 
-
-    <!-- SUMMARY -->
-
     <div class="summary">
-
         <h2>My Weekly Assignments</h2>
-
-        <p>
-            Total Weeks: 7 |
-            Total Problems: 14
-        </p>
-
+        <p>Total Weeks: 7 | Total Problems: 14</p>
     </div>
-
-
-
-    <!-- WEEK CARDS -->
 
     <div class="weeks">
 
-
         <!-- WEEK 6 -->
-
         <div class="week-card">
-
-            <div class="week-title">
-
-                <h2>Week 6</h2>
-
-            </div>
-
-
+            <div class="week-title"><h2>Week 6</h2></div>
             <div class="problem-list">
 
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 1
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 6 - Problem 1')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 1</span>
+                    <button class="btn" onclick="showProblem('Week 6 - Problem 1')">View Problem</button>
                 </div>
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 2
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 6 - Problem 2')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 2</span>
+                    <button class="btn" onclick="showProblem('Week 6 - Problem 2')">View Problem</button>
                 </div>
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 3
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 6 - Problem 3')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 3</span>
+                    <button class="btn" onclick="showProblem('Week 6 - Problem 3')">View Problem</button>
                 </div>
 
             </div>
-
         </div>
-
 
 
         <!-- WEEK 7 -->
-
         <div class="week-card">
-
-            <div class="week-title">
-
-                <h2>Week 7</h2>
-
-            </div>
-
-
+            <div class="week-title"><h2>Week 7</h2></div>
             <div class="problem-list">
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 1
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 7 - Problem 1')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 1</span>
+                    <button class="btn" onclick="showProblem('Week 7 - Problem 1')">View Problem</button>
                 </div>
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 2
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 7 - Problem 2')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 2</span>
+                    <button class="btn" onclick="showProblem('Week 7 - Problem 2')">View Problem</button>
                 </div>
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 3
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 7 - Problem 3')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 3</span>
+                    <button class="btn" onclick="showProblem('Week 7 - Problem 3')">View Problem</button>
                 </div>
 
             </div>
-
         </div>
-
 
 
         <!-- WEEK 8 -->
-
         <div class="week-card">
-
-            <div class="week-title">
-
-                <h2>Week 8</h2>
-
-            </div>
-
-
+            <div class="week-title"><h2>Week 8</h2></div>
             <div class="problem-list">
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 1
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 8 - Problem 1')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 1</span>
+                    <button class="btn" onclick="showProblem('Week 8 - Problem 1')">View Problem</button>
                 </div>
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 2
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 8 - Problem 2')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 2</span>
+                    <button class="btn" onclick="showProblem('Week 8 - Problem 2')">View Problem</button>
                 </div>
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 3
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 8 - Problem 3')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 3</span>
+                    <button class="btn" onclick="showProblem('Week 8 - Problem 3')">View Problem</button>
                 </div>
 
             </div>
-
         </div>
-
 
 
         <!-- WEEK 9 -->
-
         <div class="week-card">
-
-            <div class="week-title">
-
-                <h2>Week 9</h2>
-
-            </div>
-
-
+            <div class="week-title"><h2>Week 9</h2></div>
             <div class="problem-list">
 
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 1
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 9 - Problem 1')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 1</span>
+                    <button class="btn" onclick="showProblem('Week 9 - Problem 1')">View Problem</button>
                 </div>
 
             </div>
-
         </div>
-
 
 
         <!-- WEEK 11 -->
-
         <div class="week-card">
-
-            <div class="week-title">
-
-                <h2>Week 11</h2>
-
-            </div>
-
-
+            <div class="week-title"><h2>Week 11</h2></div>
             <div class="problem-list">
 
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 1
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 11 - Problem 1')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 1</span>
+                    <button class="btn" onclick="showProblem('Week 11 - Problem 1')">View Problem</button>
                 </div>
 
             </div>
-
         </div>
-
 
 
         <!-- WEEK 12 -->
-
         <div class="week-card">
-
-            <div class="week-title">
-
-                <h2>Week 12</h2>
-
-            </div>
-
-
+            <div class="week-title"><h2>Week 12</h2></div>
             <div class="problem-list">
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 1
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 12 - Problem 1')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 1</span>
+                    <button class="btn" onclick="showProblem('Week 12 - Problem 1')">View Problem</button>
                 </div>
 
-
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 2
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 12 - Problem 2')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 2</span>
+                    <button class="btn" onclick="showProblem('Week 12 - Problem 2')">View Problem</button>
                 </div>
 
             </div>
-
         </div>
-
 
 
         <!-- WEEK 13 -->
-
         <div class="week-card">
-
-            <div class="week-title">
-
-                <h2>Week 13</h2>
-
-            </div>
-
-
+            <div class="week-title"><h2>Week 13</h2></div>
             <div class="problem-list">
 
                 <div class="problem">
-
-                    <span class="problem-name">
-                        Problem 1
-                    </span>
-
-                    <button class="btn"
-                    onclick="showProblem('Week 13 - Problem 1')">
-
-                        View Problem
-
-                    </button>
-
+                    <span class="problem-name">Problem 1</span>
+                    <button class="btn" onclick="showProblem('Week 13 - Problem 1')">View Problem</button>
                 </div>
 
             </div>
-
         </div>
 
-
     </div>
+</div>
 
 
+<!-- POPUP -->
+<div id="problemModal" class="modal">
 
-    <!-- PROBLEM DISPLAY -->
+    <div class="modal-content">
 
-    <div id="problem-view">
+        <span class="close" onclick="closeProblem()">&times;</span>
 
-        <h2 id="problem-title"></h2>
+        <h2 id="modalTitle"></h2>
 
-        <div id="problem-content">
+        <p>
+            এখানে এই problem-এর description এবং solution থাকবে।
+        </p>
 
+        <div class="code-box">
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Your Java solution here
+
+    }
+}
         </div>
 
-
-        <button class="back-btn"
-        onclick="hideProblem()">
-
-            ← Back to Problems
-
-        </button>
-
     </div>
-
 
 </div>
 
 
-
-<!-- FOOTER -->
-
 <footer>
-
-    <p>
-        © 2026 Java Problems Repository |
-        MD Ohidur Rahman
-    </p>
-
+    <p>© 2026 Java Problems Repository | MD Ohidur Rahman</p>
 </footer>
 
 
-
-<!-- JAVASCRIPT -->
-
 <script>
 
-    function showProblem(problemName) {
+function showProblem(problemName) {
 
-        document.getElementById("problem-title").innerText =
-        problemName;
+    document.getElementById("modalTitle").innerText = problemName;
 
+    document.getElementById("problemModal").style.display = "block";
+}
 
-        document.getElementById("problem-content").innerHTML =
+function closeProblem() {
 
-        "<h3>Problem Details</h3>" +
+    document.getElementById("problemModal").style.display = "none";
+}
 
-        "<p>" +
+window.onclick = function(event) {
 
-        "This section will contain the complete problem statement, " +
+    let modal = document.getElementById("problemModal");
 
-        "solution explanation, and Java code for " +
-
-        "<b>" + problemName + "</b>." +
-
-        "</p>" +
-
-        "<br>" +
-
-        "<h3>Java Solution</h3>" +
-
-        "<pre style='background:#24292f; color:#ffffff; padding:20px; border-radius:8px; overflow:auto;'>" +
-
-        "public class Main {\n\n" +
-
-        "    public static void main(String[] args) {\n\n" +
-
-        "        // Write your solution here\n\n" +
-
-        "    }\n\n" +
-
-        "}" +
-
-        "</pre>";
-
-
-        document.getElementById("problem-view").style.display = "block";
-
-
-        document.getElementById("problem-view").scrollIntoView({
-
-            behavior: "smooth"
-
-        });
-
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
-
-
-    function hideProblem() {
-
-        document.getElementById("problem-view").style.display = "none";
-
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    }
+}
 
 </script>
 
-
 </body>
-
 </html>
-```
